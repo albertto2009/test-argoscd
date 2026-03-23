@@ -16,7 +16,7 @@ spec:
       - name: container
         image: crccheck/hello-world
         ports:
-        - containerPort: 80 # Puerto interno del contenedor
+        - containerPort: 8000 # Puerto interno del contenedor
 ---
 apiVersion: v1
 kind: Service
@@ -26,6 +26,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 8089        # <--- El puerto que tú usarás en el navegador
-    targetPort: 80    # <--- El puerto al que el Service enviará el tráfico (el del contenedor)
+    targetPort: 8000    # <--- El puerto al que el Service enviará el tráfico (el del contenedor)
   selector:
     app: game
